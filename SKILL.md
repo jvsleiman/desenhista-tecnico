@@ -60,10 +60,10 @@ Um desenho técnico errado é pior que nenhum.
 Não escreva gerador próprio nem leia o código dos scripts — eles já fazem projeção, sombreamento, chamadas, animação e página. Seu trabalho é só a descrição da cena:
 
 1. `python3 scripts/cena_<estilo>.py --api` lista as peças e os parâmetros; `--exemplo-json` mostra um JSON completo para copiar a estrutura. (`cena_blueprint.py` para Blueprint, `cena_ui.py` para UI.)
-2. Escreva `cena.json` com as peças de trás para frente (menor `x+y` primeiro). No Blueprint, as `chamadas` só precisam de `texto`, `detalhe`, `alvo` [x,y,z] e `lado` — o script distribui as colunas sem sobreposição. Plantas usam as peças 2D (`ret`, `circ`, `linha2d`, `cota`, `carimbo`) em pixels.
+2. Escreva `cena.json` com as peças de trás para frente (menor `x+y` primeiro). No Blueprint, as `chamadas` só precisam de `texto`, `detalhe`, `alvo` [x,y,z] e `lado` — o script distribui as colunas sem sobreposição. Plantas abrem uma `vista` (origem em px + px por mm) e desenham com as peças 2D (`ret`, `circ`, `linha2d`, `cota`, `chamada2d`) direto em milímetros; `cota` sem texto escreve a medida sozinha; `fim_vista` põe o título. Diagramas usam `cabo` (seta + rótulo), `grupo` e `passos`.
 3. `python3 scripts/cena_<estilo>.py cena.json <nome>` grava `<nome>.svg` e `<nome>.html`.
 
-Se faltar uma peça, crie uma subclasse pequena num arquivo seu importando do script (`sys.path.insert(0, '<skill>/scripts')`) e chame `de_json` dela — não copie o script. A geometria vem de `scripts/iso.py` (`box`, `rbox`, `cyl`, `explode`, `point`).
+Se faltar uma peça, crie uma subclasse pequena num arquivo seu importando do script (`sys.path.insert(0, '/tmp/desenhista-tecnico/scripts')`) e chame `de_json` dela — não copie o script. A geometria vem de `scripts/iso.py` (`box`, `rbox`, `cyl`, `explode`, `point`).
 
 ## Passo 5 — Entrega
 
