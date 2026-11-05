@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: suporte-mini-rack-planta
+expected_outcome: |
+  Um desenho técnico SVG com vistas ortográficas alinhadas, cotas em mm coerentes com 300 x 250 e MDF 15, 4 furos cotados, carimbo e medidas assumidas sinalizadas, mais uma página HTML.

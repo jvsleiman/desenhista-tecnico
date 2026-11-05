@@ -1,0 +1,100 @@
+<svg class="cena-ui" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" width="560" height="420" role="img">
+<style>
+svg.cena-ui { --ui-pagina:#0f0f0f; --ui-pagina:#0f0f0f; --ui-cartao:#161616; --ui-cartao-borda:#262626;
+  --ui-plat-topo:#1b1b1b; --ui-plat-lado:#121212; --ui-traco:#3a3a3a; --ui-traco-forte:#5a5a5a;
+  --ui-obj-topo:#222222; --ui-obj-lado:#181818; --ui-detalhe:#6b6b6b;
+  --ui-acento:#38bdf8; --ui-acento-topo:#7dd3fc; --ui-acento-lado:#0ea5e9; --ui-acento-fundo:#0c4a6e;
+  --ui-erro:#f472b6; --ui-legenda:#737373; font-family:'Departure Mono','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace; }
+.cena-ui .plat-topo { fill:var(--ui-plat-topo); stroke:var(--ui-traco); stroke-width:1; stroke-linejoin:round; }
+.cena-ui .plat-lado { fill:var(--ui-plat-lado); stroke:var(--ui-traco); stroke-width:1; stroke-linejoin:round; }
+.cena-ui .trilho { fill:none; stroke:var(--ui-traco); stroke-width:1; opacity:.7; }
+.cena-ui .obj-topo { fill:var(--ui-obj-topo); stroke:var(--ui-traco-forte); stroke-width:1; stroke-linejoin:round; transition:stroke .2s; }
+.cena-ui .obj-lado { fill:var(--ui-obj-lado); stroke:var(--ui-traco-forte); stroke-width:1; stroke-linejoin:round; transition:stroke .2s; }
+.cena-ui .ac-topo { fill:var(--ui-acento-topo); stroke:var(--ui-acento-topo); stroke-width:1; stroke-linejoin:round; }
+.cena-ui .ac-lado { fill:var(--ui-acento-lado); stroke:var(--ui-acento-topo); stroke-width:1; stroke-linejoin:round; }
+.cena-ui .fantasma { fill:none; stroke:var(--ui-acento); stroke-width:1.25; stroke-dasharray:4 4; animation:ui-gira 6s linear infinite; }
+.cena-ui .risco { fill:none; stroke:var(--ui-detalhe); stroke-width:1.2; stroke-linecap:round; }
+.cena-ui .risco-ac { fill:none; stroke:var(--ui-acento-fundo); stroke-width:1.6; stroke-linecap:round; }
+.cena-ui .icone { fill:none; stroke:var(--ui-acento); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.cena-ui .icone.erro { stroke:var(--ui-erro); animation:ui-pisca 4s ease-in-out infinite; }
+.cena-ui .fio { fill:none; stroke:var(--ui-traco); stroke-width:1.25; stroke-dasharray:4 4; }
+.cena-ui .fio.ativo { stroke:var(--ui-acento); animation:ui-corre 1.2s linear infinite; }
+.cena-ui .fio.erro { stroke:var(--ui-erro); }
+.cena-ui .no { fill:var(--ui-acento); }
+.cena-ui .led-erro { fill:var(--ui-erro); animation:ui-pisca 1.6s ease-in-out infinite; }
+.cena-ui .risco-tela-ac { fill:none; stroke:var(--ui-acento); stroke-width:1.6; stroke-linecap:round; }
+.cena-ui .rot-fio { font-size:11px; fill:var(--ui-legenda); }
+.cena-ui .rot-fio.ativo { fill:var(--ui-acento); }
+.cena-ui .rot-fio.erro { fill:var(--ui-erro); }
+.cena-ui .pacote { fill:var(--ui-acento-topo); offset-rotate:0deg; animation:ui-viaja var(--dur,3s) cubic-bezier(.4,0,.2,1) infinite; }
+.cena-ui .hub { animation:ui-respira 2.4s ease-in-out infinite; }
+.cena-ui .legenda { font-size:13px; fill:var(--ui-legenda); }
+.cena-ui .estado { font-size:13px; fill:var(--ui-acento); }
+.cena-ui .estado.erro { fill:var(--ui-erro); }
+.cena-ui .tag { font-size:11px; fill:#d4d4d4; opacity:0; transition:opacity .2s; pointer-events:none; }
+.cena-ui .tag-fundo { fill:#0f0f0f; stroke:var(--ui-traco-forte); stroke-width:1; opacity:0; transition:opacity .2s; }
+.cena-ui .obj { transition:transform .25s cubic-bezier(.4,0,.2,1), opacity .25s; outline:none; }
+.cena-ui.focando .obj:not(.ativo) { opacity:.55; }
+.cena-ui .obj.ativo { transform:translateY(-3px); }
+.cena-ui .obj.ativo .obj-topo, .cena-ui .obj.ativo .obj-lado { stroke:#8a8a8a; }
+.cena-ui .obj.ativo .tag, .cena-ui .obj.ativo .tag-fundo { opacity:1; }
+@keyframes ui-corre { to { stroke-dashoffset:-16; } }
+@keyframes ui-gira { to { stroke-dashoffset:-32; } }
+@keyframes ui-viaja { 0%{offset-distance:0%;opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{offset-distance:100%;opacity:0} }
+@keyframes ui-respira { 0%,100%{filter:drop-shadow(0 0 4px rgb(56 189 248 / .22))} 50%{filter:drop-shadow(0 0 10px rgb(56 189 248 / .45))} }
+@keyframes ui-pisca { 0%,55%,100%{opacity:.35} 65%,85%{opacity:1} }
+@media (prefers-reduced-motion: reduce) { .cena-ui * { animation:none !important; transition:none !important; } .cena-ui .pacote { display:none; } }
+</style>
+<rect width="560" height="420" rx="16" fill="#161616" stroke="#262626"/>
+<g class="plataforma"><polygon class="plat-lado" points="41.79,192.85 42.39,190.21 44.15,187.76 46.95,185.65 240.25,74.05 243.9,72.43 248.16,71.41 252.72,71.07 257.28,71.41 261.54,72.43 265.19,74.05 489.66,203.65 492.47,205.76 494.23,208.21 494.83,210.85 494.83,216.25 494.23,218.89 492.47,221.34 489.66,223.45 296.37,335.05 292.72,336.67 288.46,337.69 283.9,338.03 279.33,337.69 275.08,336.67 271.43,335.05 46.95,205.45 44.15,203.34 42.39,200.89 41.79,198.25"/>
+<polygon class="plat-topo" points="489.66,203.65 492.47,205.76 494.23,208.21 494.83,210.85 494.23,213.49 492.47,215.94 489.66,218.05 296.37,329.65 292.72,331.27 288.46,332.29 283.9,332.63 279.33,332.29 275.08,331.27 271.43,329.65 46.95,200.05 44.15,197.94 42.39,195.49 41.79,192.85 42.39,190.21 44.15,187.76 46.95,185.65 240.25,74.05 243.9,72.43 248.16,71.41 252.72,71.07 257.28,71.41 261.54,72.43 265.19,74.05"/>
+<polygon class="trilho" points="475.64,206.35 477.39,207.67 478.49,209.2 478.86,210.85 478.49,212.5 477.39,214.03 475.64,215.35 291.69,321.55 289.41,322.56 286.75,323.2 283.9,323.41 281.04,323.2 278.39,322.56 276.1,321.55 60.98,197.35 59.23,196.03 58.13,194.5 57.75,192.85 58.13,191.2 59.23,189.67 60.98,188.35 244.93,82.15 247.21,81.14 249.87,80.5 252.72,80.29 255.57,80.5 258.23,81.14 260.51,82.15"/></g>
+<g class="obj " id="produtor" tabindex="0" role="img" aria-label="producer · 3 apps" data-rotulo="producer · 3 apps"><polygon class="obj-lado" points="214.15,93.4 214.38,92.41 215.04,91.49 216.09,90.7 250.38,70.9 251.75,70.29 253.35,69.91 255.06,69.78 256.77,69.91 258.37,70.29 259.74,70.9 294.03,90.7 295.08,91.49 295.74,92.41 295.97,93.4 295.97,104.2 295.74,105.19 295.08,106.11 294.03,106.9 259.74,126.7 258.37,127.31 256.77,127.69 255.06,127.82 253.35,127.69 251.75,127.31 250.38,126.7 216.09,106.9 215.04,106.11 214.38,105.19 214.15,104.2"/>
+<polygon class="obj-topo" points="294.03,90.7 295.08,91.49 295.74,92.41 295.97,93.4 295.74,94.39 295.08,95.31 294.03,96.1 259.74,115.9 258.37,116.51 256.77,116.89 255.06,117.02 253.35,116.89 251.75,116.51 250.38,115.9 216.09,96.1 215.04,95.31 214.38,94.39 214.15,93.4 214.38,92.41 215.04,91.49 216.09,90.7 250.38,70.9 251.75,70.29 253.35,69.91 255.06,69.78 256.77,69.91 258.37,70.29 259.74,70.9"/>
+<line class="risco" x1="287.79" y1="105.1" x2="272.52" y2="113.92"/>
+<circle cx="263.79" cy="118.96" r="1.4" fill="var(--ui-detalhe)"/>
+<polygon class="obj-lado" points="214.15,79.0 214.38,78.01 215.04,77.09 216.09,76.3 250.38,56.5 251.75,55.89 253.35,55.51 255.06,55.38 256.77,55.51 258.37,55.89 259.74,56.5 294.03,76.3 295.08,77.09 295.74,78.01 295.97,79.0 295.97,89.8 295.74,90.79 295.08,91.71 294.03,92.5 259.74,112.3 258.37,112.91 256.77,113.29 255.06,113.42 253.35,113.29 251.75,112.91 250.38,112.3 216.09,92.5 215.04,91.71 214.38,90.79 214.15,89.8"/>
+<polygon class="obj-topo" points="294.03,76.3 295.08,77.09 295.74,78.01 295.97,79.0 295.74,79.99 295.08,80.91 294.03,81.7 259.74,101.5 258.37,102.11 256.77,102.49 255.06,102.62 253.35,102.49 251.75,102.11 250.38,101.5 216.09,81.7 215.04,80.91 214.38,79.99 214.15,79.0 214.38,78.01 215.04,77.09 216.09,76.3 250.38,56.5 251.75,55.89 253.35,55.51 255.06,55.38 256.77,55.51 258.37,55.89 259.74,56.5"/>
+<line class="risco" x1="287.79" y1="90.7" x2="272.52" y2="99.52"/>
+<circle cx="263.79" cy="104.56" r="1.4" fill="var(--ui-detalhe)"/>
+<polygon class="obj-lado" points="214.15,64.6 214.38,63.61 215.04,62.69 216.09,61.9 250.38,42.1 251.75,41.49 253.35,41.11 255.06,40.98 256.77,41.11 258.37,41.49 259.74,42.1 294.03,61.9 295.08,62.69 295.74,63.61 295.97,64.6 295.97,75.4 295.74,76.39 295.08,77.31 294.03,78.1 259.74,97.9 258.37,98.51 256.77,98.89 255.06,99.02 253.35,98.89 251.75,98.51 250.38,97.9 216.09,78.1 215.04,77.31 214.38,76.39 214.15,75.4"/>
+<polygon class="obj-topo" points="294.03,61.9 295.08,62.69 295.74,63.61 295.97,64.6 295.74,65.59 295.08,66.51 294.03,67.3 259.74,87.1 258.37,87.71 256.77,88.09 255.06,88.22 253.35,88.09 251.75,87.71 250.38,87.1 216.09,67.3 215.04,66.51 214.38,65.59 214.15,64.6 214.38,63.61 215.04,62.69 216.09,61.9 250.38,42.1 251.75,41.49 253.35,41.11 255.06,40.98 256.77,41.11 258.37,41.49 259.74,42.1"/>
+<line class="risco" x1="287.79" y1="76.3" x2="272.52" y2="85.12"/>
+<circle cx="263.79" cy="90.16" r="1.6" fill="var(--ui-acento)"/>
+<polyline class="risco" points="249.91,57.67 263.63,65.59"/>
+<polyline class="risco" points="245.63,60.14 255.92,66.09"/>
+<polyline class="risco" points="241.34,62.62 256.77,71.53"/>
+<rect class="tag-fundo" x="188.6" y="3.4" width="133" height="20" rx="4"/><text class="tag" x="255.1" y="17.4" text-anchor="middle">producer · 3 apps</text></g>
+<g class="obj " id="fila" tabindex="0" role="img" aria-label="queue · 3 eventos" data-rotulo="queue · 3 eventos"><polygon class="obj-lado" points="303.19,117.7 303.31,117.21 303.64,116.75 304.16,116.35 308.84,113.65 309.52,113.35 310.32,113.16 311.18,113.09 312.03,113.16 312.83,113.35 313.52,113.65 318.19,116.35 318.72,116.75 319.05,117.21 319.16,117.7 319.16,122.2 319.05,122.69 318.72,123.15 318.19,123.55 313.52,126.25 312.83,126.55 312.03,126.74 311.18,126.81 310.32,126.74 309.52,126.55 308.84,126.25 304.16,123.55 303.64,123.15 303.31,122.69 303.19,122.2"/>
+<polygon class="obj-topo" points="318.19,116.35 318.72,116.75 319.05,117.21 319.16,117.7 319.05,118.19 318.72,118.65 318.19,119.05 313.52,121.75 312.83,122.05 312.03,122.24 311.18,122.31 310.32,122.24 309.52,122.05 308.84,121.75 304.16,119.05 303.64,118.65 303.31,118.19 303.19,117.7 303.31,117.21 303.64,116.75 304.16,116.35 308.84,113.65 309.52,113.35 310.32,113.16 311.18,113.09 312.03,113.16 312.83,113.35 313.52,113.65"/>
+<polygon class="obj-lado" points="317.22,125.8 317.34,125.31 317.67,124.85 318.19,124.45 322.87,121.75 323.55,121.45 324.35,121.26 325.21,121.19 326.06,121.26 326.86,121.45 327.54,121.75 332.22,124.45 332.75,124.85 333.08,125.31 333.19,125.8 333.19,130.3 333.08,130.79 332.75,131.25 332.22,131.65 327.54,134.35 326.86,134.65 326.06,134.84 325.21,134.91 324.35,134.84 323.55,134.65 322.87,134.35 318.19,131.65 317.67,131.25 317.34,130.79 317.22,130.3"/>
+<polygon class="obj-topo" points="332.22,124.45 332.75,124.85 333.08,125.31 333.19,125.8 333.08,126.29 332.75,126.75 332.22,127.15 327.54,129.85 326.86,130.15 326.06,130.34 325.21,130.41 324.35,130.34 323.55,130.15 322.87,129.85 318.19,127.15 317.67,126.75 317.34,126.29 317.22,125.8 317.34,125.31 317.67,124.85 318.19,124.45 322.87,121.75 323.55,121.45 324.35,121.26 325.21,121.19 326.06,121.26 326.86,121.45 327.54,121.75"/>
+<polygon class="obj-lado" points="331.25,133.9 331.37,133.41 331.7,132.95 332.22,132.55 336.9,129.85 337.58,129.55 338.38,129.36 339.24,129.29 340.09,129.36 340.89,129.55 341.57,129.85 346.25,132.55 346.78,132.95 347.11,133.41 347.22,133.9 347.22,138.4 347.11,138.89 346.78,139.35 346.25,139.75 341.57,142.45 340.89,142.75 340.09,142.94 339.24,143.01 338.38,142.94 337.58,142.75 336.9,142.45 332.22,139.75 331.7,139.35 331.37,138.89 331.25,138.4"/>
+<polygon class="obj-topo" points="346.25,132.55 346.78,132.95 347.11,133.41 347.22,133.9 347.11,134.39 346.78,134.85 346.25,135.25 341.57,137.95 340.89,138.25 340.09,138.44 339.24,138.51 338.38,138.44 337.58,138.25 336.9,137.95 332.22,135.25 331.7,134.85 331.37,134.39 331.25,133.9 331.37,133.41 331.7,132.95 332.22,132.55 336.9,129.85 337.58,129.55 338.38,129.36 339.24,129.29 340.09,129.36 340.89,129.55 341.57,129.85"/>
+<rect class="tag-fundo" x="244.7" y="76.3" width="133" height="20" rx="4"/><text class="tag" x="311.2" y="90.3" text-anchor="middle">queue · 3 eventos</text></g>
+<g class="fios"><path class="fio ativo" d="M334.56,141.1 L276.1,174.85"/><circle class="no" cx="334.56" cy="141.1" r="2"/><circle class="no" cx="276.1" cy="174.85" r="2"/><rect class="pacote" x="-3" y="-3" width="6" height="6" transform="rotate(45)" style="offset-path:path('M334.56,141.1 L276.1,174.85');--dur:2.2s;animation-delay:-0.00s"/></g>
+<g class="fios"><path class="fio" d="M311.18,195.1 L340.02,178.45 L382.88,203.2"/><circle class="no" cx="311.18" cy="195.1" r="2"/><circle class="no" cx="382.88" cy="203.2" r="2"/></g>
+<g class="obj " id="assinatura" tabindex="0" role="img" aria-label="payload assinado" data-rotulo="payload assinado"><polygon class="obj-lado" points="373.15,205.0 373.38,204.01 374.04,203.09 375.09,202.3 392.24,192.4 393.61,191.79 395.2,191.41 396.91,191.28 398.63,191.41 400.22,191.79 401.59,192.4 423.41,205.0 424.46,205.79 425.13,206.71 425.35,207.7 425.35,213.1 425.13,214.09 424.46,215.01 423.41,215.8 406.27,225.7 404.9,226.31 403.3,226.69 401.59,226.82 399.88,226.69 398.28,226.31 396.91,225.7 375.09,213.1 374.04,212.31 373.38,211.39 373.15,210.4"/>
+<polygon class="obj-topo" points="423.41,205.0 424.46,205.79 425.13,206.71 425.35,207.7 425.13,208.69 424.46,209.61 423.41,210.4 406.27,220.3 404.9,220.91 403.3,221.29 401.59,221.42 399.88,221.29 398.28,220.91 396.91,220.3 375.09,207.7 374.04,206.91 373.38,205.99 373.15,205.0 373.38,204.01 374.04,203.09 375.09,202.3 392.24,192.4 393.61,191.79 395.2,191.41 396.91,191.28 398.63,191.41 400.22,191.79 401.59,192.4"/>
+<polyline class="icone" points="396.91,198.7 412.5,207.7 401.59,214.0 386.0,205.0 396.91,198.7"/>
+<polyline class="icone" points="396.91,198.7 398.47,206.8 412.5,207.7"/><rect class="tag-fundo" x="333.9" y="153.7" width="126" height="20" rx="4"/><text class="tag" x="396.9" y="167.7" text-anchor="middle">payload assinado</text></g>
+<g class="fios"><path class="fio ativo" d="M299.49,210.85 L334.56,231.1"/><circle class="no" cx="299.49" cy="210.85" r="2"/><circle class="no" cx="334.56" cy="231.1" r="2"/><rect class="pacote" x="-3" y="-3" width="6" height="6" transform="rotate(45)" style="offset-path:path('M299.49,210.85 L334.56,231.1');--dur:2.6s;animation-delay:-0.00s"/></g>
+<g class="fios"><path class="fio ativo" d="M252.72,192.85 L202.06,163.6 L161.53,187.0"/><circle class="no" cx="252.72" cy="192.85" r="2"/><circle class="no" cx="161.53" cy="187.0" r="2"/></g>
+<g class="fios"><path class="fio ativo erro" d="M264.41,213.1 L227.78,234.25"/><circle class="no" cx="264.41" cy="213.1" r="2"/><circle class="no" cx="227.78" cy="234.25" r="2"/></g>
+<g class="obj " id="hub" tabindex="0" role="img" aria-label="hub · 4 workers" data-rotulo="hub · 4 workers"><g class="hub"><polygon class="ac-lado" points="246.51,163.6 246.96,161.62 248.28,159.78 250.38,158.2 270.65,146.5 273.39,145.29 276.58,144.52 280.0,144.26 283.42,144.52 286.61,145.29 289.35,146.5 309.62,158.2 311.72,159.78 313.04,161.62 313.49,163.6 313.49,199.6 313.04,201.58 311.72,203.42 309.62,205.0 289.35,216.7 286.61,217.91 283.42,218.68 280.0,218.94 276.58,218.68 273.39,217.91 270.65,216.7 250.38,205.0 248.28,203.42 246.96,201.58 246.51,199.6"/>
+<polygon class="ac-topo" points="309.62,158.2 311.72,159.78 313.04,161.62 313.49,163.6 313.04,165.58 311.72,167.42 309.62,169.0 289.35,180.7 286.61,181.91 283.42,182.68 280.0,182.94 276.58,182.68 273.39,181.91 270.65,180.7 250.38,169.0 248.28,167.42 246.96,165.58 246.51,163.6 246.96,161.62 248.28,159.78 250.38,158.2 270.65,146.5 273.39,145.29 276.58,144.52 280.0,144.26 283.42,144.52 286.61,145.29 289.35,146.5"/>
+<line class="risco-ac" x1="305.33" y1="196.68" x2="305.33" y2="185.16"/>
+<line class="risco-ac" x1="299.49" y1="200.05" x2="299.49" y2="188.53"/>
+<line class="risco-ac" x1="293.64" y1="203.43" x2="293.64" y2="191.91"/><rect class="tag-fundo" x="220.5" y="105.1" width="119" height="20" rx="4"/><text class="tag" x="280.0" y="119.1" text-anchor="middle">hub · 4 workers</text></g></g>
+<g class="obj " id="ok" tabindex="0" role="img" aria-label="endpoint a · 200" data-rotulo="endpoint a · 200"><polygon class="obj-lado" points="322.62,232.9 322.92,231.58 323.81,230.35 325.21,229.3 343.91,218.5 345.74,217.69 347.87,217.18 350.15,217.01 352.43,217.18 354.56,217.69 356.38,218.5 390.68,238.3 392.08,239.35 392.96,240.58 393.26,241.9 393.26,249.1 392.96,250.42 392.08,251.65 390.68,252.7 371.97,263.5 370.15,264.31 368.02,264.82 365.74,264.99 363.45,264.82 361.33,264.31 359.5,263.5 325.21,243.7 323.81,242.65 322.92,241.42 322.62,240.1"/>
+<polygon class="obj-topo" points="390.68,238.3 392.08,239.35 392.96,240.58 393.26,241.9 392.96,243.22 392.08,244.45 390.68,245.5 371.97,256.3 370.15,257.11 368.02,257.62 365.74,257.79 363.45,257.62 361.33,257.11 359.5,256.3 325.21,236.5 323.81,235.45 322.92,234.22 322.62,232.9 322.92,231.58 323.81,230.35 325.21,229.3 343.91,218.5 345.74,217.69 347.87,217.18 350.15,217.01 352.43,217.18 354.56,217.69 356.38,218.5"/>
+<polyline class="icone" points="351.64,237.4 356.14,240.19 365.14,234.05"/><rect class="tag-fundo" x="287.1" y="178.9" width="126" height="20" rx="4"/><text class="tag" x="350.1" y="192.9" text-anchor="middle">endpoint a · 200</text></g>
+<g class="obj " id="novo" tabindex="0" role="img" aria-label="novo endpoint" data-rotulo="novo endpoint"><polygon class="fantasma" points="178.68,189.7 180.08,190.75 180.96,191.98 181.26,193.3 180.96,194.62 180.08,195.85 178.68,196.9 159.97,207.7 158.14,208.51 156.02,209.02 153.73,209.19 151.45,209.02 149.32,208.51 147.5,207.7 113.2,187.9 111.8,186.85 110.92,185.62 110.62,184.3 110.92,182.98 111.8,181.75 113.2,180.7 131.91,169.9 133.74,169.09 135.86,168.58 138.15,168.41 140.43,168.58 142.55,169.09 144.38,169.9"/>
+<polyline class="icone" points="139.64,188.8 152.24,188.8"/>
+<polyline class="icone" points="145.94,184.89 145.94,192.71"/><rect class="tag-fundo" x="85.7" y="130.3" width="105" height="20" rx="4"/><text class="tag" x="138.2" y="144.3" text-anchor="middle">novo endpoint</text></g>
+<g class="obj " id="erro" tabindex="0" role="img" aria-label="endpoint b · 503" data-rotulo="endpoint b · 503"><polygon class="obj-lado" points="176.87,231.55 177.17,230.23 178.05,229.0 179.45,227.95 198.16,217.15 199.99,216.34 202.11,215.83 204.4,215.66 206.68,215.83 208.81,216.34 210.63,217.15 244.93,236.95 246.33,238.0 247.21,239.23 247.51,240.55 247.51,247.75 247.21,249.07 246.33,250.3 244.93,251.35 226.22,262.15 224.39,262.96 222.27,263.47 219.98,263.64 217.7,263.47 215.58,262.96 213.75,262.15 179.45,242.35 178.05,241.3 177.17,240.07 176.87,238.75"/>
+<polygon class="obj-topo" points="244.93,236.95 246.33,238.0 247.21,239.23 247.51,240.55 247.21,241.87 246.33,243.1 244.93,244.15 226.22,254.95 224.39,255.76 222.27,256.27 219.98,256.44 217.7,256.27 215.58,255.76 213.75,254.95 179.45,235.15 178.05,234.1 177.17,232.87 176.87,231.55 177.17,230.23 178.05,229.0 179.45,227.95 198.16,217.15 199.99,216.34 202.11,215.83 204.4,215.66 206.68,215.83 208.81,216.34 210.63,217.15"/>
+<polyline class="icone erro" points="206.79,232.7 217.59,239.4"/>
+<polyline class="icone erro" points="206.79,239.4 217.59,232.7"/><rect class="tag-fundo" x="141.4" y="177.6" width="126" height="20" rx="4"/><text class="tag" x="204.4" y="191.6" text-anchor="middle">endpoint b · 503</text></g>
+<text class="legenda" x="24" y="398">producer → hub → endpoints</text><text class="estado erro" id="estado" x="536" y="398" text-anchor="end">retry · 503</text>
+</svg>

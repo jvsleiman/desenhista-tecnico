@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: homelab-diagrama
+expected_outcome: |
+  Um diagrama de sistema SVG no estilo blueprint azul mostrando o fluxo modem → roteador → switch, o host Proxmox agrupando as três VMs/containers e o NAS separado, com rótulos em português, mais uma página HTML.

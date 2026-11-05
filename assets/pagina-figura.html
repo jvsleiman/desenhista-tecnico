@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIG_001 — Nome do objeto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/departure-mono/index.css" rel="stylesheet">
+<style>
+  :root {
+    --papel: #fbfbfb; --tinta: #000; --azul: #103dff; --cinza: #7d7d7d; --linha: #e1e1e1;
+    --serif: 'Arizona', 'EB Garamond', Georgia, serif;
+    --mono: 'Departure Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 400 14px/1.6 var(--serif); }
+  main { max-width: 1536px; margin: 0 auto; padding: 48px 72px 96px; }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; }
+  .marca { font-family: var(--mono); color: var(--azul); font-size: 14px; text-transform: uppercase; }
+  .lede { font-size: 16px; line-height: 1.8; text-align: right; }
+  .divisor { font-family: var(--mono); color: var(--cinza); font-size: 12px; white-space: nowrap; overflow: hidden; margin: 24px 0 64px; }
+  figure { margin: 0; }
+  figure svg { display: block; width: 100%; height: auto; }
+  figcaption { font-family: var(--mono); font-size: 10px; color: var(--cinza); text-transform: uppercase; margin-top: 12px; display: flex; gap: 16px; }
+  figcaption span:last-child { color: var(--tinta); font-family: var(--serif); font-size: 14px; text-transform: none; }
+  @media (max-width: 900px) { main { padding: 24px; } header { flex-direction: column; } .lede { text-align: left; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="marca">Desenho técnico</div>
+    <div class="lede">Frase curta sobre o que o desenho mostra.</div>
+  </header>
+  <div class="divisor">-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</div>
+  <figure>
+    <!-- SVG INLINE AQUI -->
+    <figcaption><span>FIG_001</span><span>Legenda em uma ou duas frases.</span></figcaption>
+  </figure>
+</main>
+</body>
+</html>

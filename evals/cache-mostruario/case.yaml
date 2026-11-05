@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: cache-mostruario
+expected_outcome: |
+  Cena no estilo UI escuro com cache como protagonista ciano, caminho de hit e caminho de miss até o banco claramente distintos, animação sutil, interação por hover, legenda mono; .svg e .html.

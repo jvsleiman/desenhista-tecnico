@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<link href="https://cdn.jsdelivr.net/npm/@fontsource/departure-mono/index.css" rel="stylesheet">
+<style>
+  html, body { margin:0; min-height:100%; background:#0f0f0f; }
+  body { display:grid; place-items:center; min-height:100vh; padding:24px; box-sizing:border-box; }
+  .palco { width:min(100%, 720px); }
+  .palco svg { display:block; width:100%; height:auto; }
+  .palco svg .obj { cursor:pointer; }
+  .dica { margin-top:12px; font:12px 'Departure Mono','JetBrains Mono',ui-monospace,monospace; color:#525252; text-align:center; }
+</style>
+</head>
+<body>
+<main class="palco">
+{{SVG}}
+<p class="dica">{{DICA}}</p>
+</main>
+<script>
+(() => {
+  const svg = document.querySelector('svg.cena-ui');
+  if (!svg) return;
+  const objs = [...svg.querySelectorAll('.obj')];
+  const ativa = (el) => { svg.classList.add('focando'); objs.forEach(o => o.classList.toggle('ativo', o === el)); };
+  const solta = () => { svg.classList.remove('focando'); objs.forEach(o => o.classList.remove('ativo')); };
+  objs.forEach(o => {
+    o.addEventListener('mouseenter', () => ativa(o));
+    o.addEventListener('mouseleave', solta);
+    o.addEventListener('focus', () => ativa(o));
+    o.addEventListener('blur', solta);
+  });
+
+  // Clique num card com erro: "reenvia" — o × vira ✓ ciano, o fio de erro vira ativo e a legenda muda.
+  const estado = svg.querySelector('#estado');
+  svg.querySelectorAll('.obj').forEach(o => {
+    const x = o.querySelectorAll('.icone.erro');
+    if (!x.length) return;
+    const reenviar = () => {
+      x.forEach(l => { l.classList.remove('erro'); });
+      // troca o desenho do × por um ✓ usando os mesmos pontos extremos
+      const [a, b] = x;
+      if (a && b) {
+        const p1 = a.getAttribute('points').split(' '), p2 = b.getAttribute('points').split(' ');
+        a.setAttribute('points', [p2[0], midpoint(p1[0], p1[1]), p2[1]].join(' '));
+        b.remove();
+      }
+      svg.querySelectorAll('.fio.erro').forEach(f => f.classList.remove('erro'));
+      if (estado) { estado.textContent = 'delivered · 200'; estado.classList.remove('erro'); }
+      o.setAttribute('aria-label', (o.dataset.rotulo || '').replace('503', '200'));
+    };
+    o.addEventListener('click', reenviar);
+    o.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reenviar(); } });
+  });
+  function midpoint(a, b) {
+    const [ax, ay] = a.split(',').map(Number), [bx, by] = b.split(',').map(Number);
+    return `${(ax + bx) / 2},${(ay + by) / 2 + 3}`;
+  }
+  /*{{SCRIPT_EXTRA}}*/
+})();
+</script>
+</body>
+</html>

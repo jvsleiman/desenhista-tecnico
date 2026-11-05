@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: ssd-m2-vista-explodida
+expected_outcome: |
+  Um SVG isométrico em vista explodida de um SSD M.2 2280, no estilo blueprint azul, com as camadas na ordem real, guias tracejadas e chamadas em português, mais uma página HTML exibindo o SVG.

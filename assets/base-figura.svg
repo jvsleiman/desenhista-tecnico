@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="'Departure Mono', 'IBM Plex Mono', ui-monospace, monospace">
+  <defs>
+    <!-- Grade pontilhada de fundo -->
+    <pattern id="grade" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="#0043ff" fill-opacity="0.18"/>
+    </pattern>
+    <!-- Hachura diagonal para faces de corte -->
+    <pattern id="hachura" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="6" height="6" fill="#e6ebff"/>
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#b6c8ff" stroke-width="2"/>
+    </pattern>
+    <!-- Pontas de seta -->
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,1 L9,5 L0,9" fill="none" stroke="#0043ff" stroke-width="1.4" stroke-linejoin="round"/>
+    </marker>
+    <marker id="seta-cota" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,2 L10,5 L0,8 Z" fill="#7d7d7d"/>
+    </marker>
+    <style>
+      .traco    { fill: none; stroke: #0043ff; stroke-width: 1.25; stroke-linejoin: round; stroke-linecap: round; }
+      .fino     { fill: none; stroke: #0043ff; stroke-width: 0.75; }
+      .construcao { fill: none; stroke: #0043ff; stroke-width: 0.75; stroke-dasharray: 3 3; opacity: 0.7; }
+      .topo     { fill: #e6ebff; stroke: #0043ff; stroke-width: 1.25; stroke-linejoin: round; }
+      .esq      { fill: #f4f5f9; stroke: #0043ff; stroke-width: 1.25; stroke-linejoin: round; }
+      .dir      { fill: #97acff; stroke: #0043ff; stroke-width: 1.25; stroke-linejoin: round; }
+      .corte    { fill: url(#hachura); stroke: #0043ff; stroke-width: 1.25; }
+      .guia     { fill: none; stroke: #103dff; stroke-width: 0.75; }
+      .ponto    { fill: #103dff; }
+      .chamada  { fill: #103dff; font-size: 12px; text-transform: uppercase; }
+      .detalhe  { fill: #7d7d7d; font-size: 10px; }
+      .fig      { fill: #7d7d7d; font-size: 10px; letter-spacing: 0; }
+      .cota     { fill: none; stroke: #7d7d7d; stroke-width: 0.75; }
+      .cota-txt { fill: #103dff; font-size: 10px; }
+    </style>
+  </defs>
+
+  <rect width="960" height="640" fill="#fbfbfb"/>
+  <rect x="32" y="24" width="896" height="592" fill="url(#grade)"/>
+
+  <!-- Moldura editorial -->
+  <text class="fig" transform="translate(18 320) rotate(-90)" text-anchor="middle">FIG_001</text>
+  <text class="fig" transform="translate(944 320) rotate(90)" text-anchor="middle">[ NOME DO OBJETO, ANO ]</text>
+
+  <!-- DESENHO AQUI: de trás para frente -->
+  <g id="desenho"></g>
+
+  <!-- CHAMADAS AQUI: guia + ponto + texto -->
+  <g id="chamadas"></g>
+</svg>
